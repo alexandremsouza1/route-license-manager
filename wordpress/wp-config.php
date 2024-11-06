@@ -26,6 +26,8 @@
 // a helper function to lookup "env_FILE", "env", then fallback
 if (!function_exists('getenv_docker')) {
 	// https://github.com/docker-library/wordpress/issues/588 (WP-CLI will load this file 2x)
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', '/var/www/html/wp-content/plugins/wp-super-cache/' );
 	function getenv_docker($env, $default) {
 		if ($fileEnv = getenv($env . '_FILE')) {
 			return rtrim(file_get_contents($fileEnv), "\r\n");
