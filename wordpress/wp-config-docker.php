@@ -39,6 +39,8 @@ if (!function_exists('getenv_docker')) {
 	}
 }
 
+#define('WP_CACHE', false);
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME', 'wordpress') );
@@ -133,6 +135,10 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
+}
+/** Enable API */
+if ( ! defined( 'REST_REQUEST' ) ) { 
+	define('REST_REQUEST', true); 
 }
 
 /** Sets up WordPress vars and included files. */

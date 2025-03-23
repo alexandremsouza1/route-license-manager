@@ -136,6 +136,10 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
+/** Enable API */
+if ( ! defined( 'REST_REQUEST' ) ) { 
+	define('REST_REQUEST', true); 
+}
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
