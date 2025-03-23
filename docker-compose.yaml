@@ -4,6 +4,8 @@ services:
     image: mysql:8.0.30
     volumes:
       - ./db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
